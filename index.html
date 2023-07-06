@@ -49,7 +49,10 @@
     </div>
 </footer>
 
-<script defer src="vendors/babel.min.js"></script>
+<script
+      defer
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+></script>
 <script type="text/babel">
     const Header = React.memo(() => {
         let [expanded, setExpanded] = React.useState(false);
