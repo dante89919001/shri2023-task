@@ -141,15 +141,14 @@ const TABS_KEYS = Object.keys(TABS);
 function App() {
   const ref = useRef(null);
   const [activeTab, setActiveTab] = useState(
-    () => new URLSearchParams(location.search).get("tab") || "all"
+    new URLSearchParams(location.search).get("tab") || "all"
   );
   const [size, setSize] = useState(0);
   const hasRightScroll = ref.current && size > ref.current.offsetWidth;
 
-  const handleChangeTab = (event) => {
-    const newTab = event.target.value;
+  const handleChangeTab = (tab) => {
     setSize(0);
-    setActiveTab(newTab);
+    setActiveTab(tab);
   };
 
   const onArrowCLick = () => {
