@@ -1,6 +1,6 @@
 import { useState, useRef } from "preact/hooks";
 import { Event } from "./Event.jsx";
-import { TabItems } from "./TabItems";
+import { TabItems } from "./TabItems.jsx";
 
 const TABS = {
   all: {
@@ -141,14 +141,15 @@ const TABS_KEYS = Object.keys(TABS);
 function App() {
   const ref = useRef(null);
   const [activeTab, setActiveTab] = useState(
-    new URLSearchParams(location.search).get("tab") || "all"
+    () => new URLSearchParams(location.search).get("tab") || "all"
   );
   const [size, setSize] = useState(0);
   const hasRightScroll = ref.current && size > ref.current.offsetWidth;
 
-  const handleChangeTab = (tab) => {
+  const handleChangeTab = (event) => {
+    const newTab = event.target.value;
     setSize(0);
-    setActiveTab(tab);
+    setActiveTab(newTab);
   };
 
   const onArrowCLick = () => {
