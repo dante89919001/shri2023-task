@@ -10,7 +10,6 @@ render(
   <>
     <Header />
     <App />
-    <Footer />
   </>,
   document.getElementById("root")
 );
