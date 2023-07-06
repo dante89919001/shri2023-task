@@ -1,60 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Яндекс.Дом</title>
     <link
-    as="font"
-    href="assets/lato.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
+      as="font"
+      href="assets/lato.woff2"
+      type="font/woff2"
+      crossorigin="anonymous"
     />
     <script
-    defer
-    crossorigin
-    src="https://unpkg.com/react@18/umd/react.production.min.js"
+      defer
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
     ></script>
     <script
-    defer
-    crossorigin
-    src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      defer
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
     ></script>
     <link rel="stylesheet" type="text/css" href="reset.min.css" />
     <link rel="stylesheet" type="text/css" href="styles.min.css" />
-</head>
-<body>
+  </head>
 
-<div id="app"></div>
+  <body>
+    <div id="app"></div>
 
-<footer class="footer">
-    <ul class="footer__list">
+    <footer class="footer">
+      <ul class="footer__list">
         <li class="footer__item">
-            <a class="footer__link" href="/">Помощь</a>
+          <a class="footer__link" href="/">Помощь</a>
         </li>
         <li class="footer__item">
-            <a class="footer__link" href="/">Обратная связь</a>
+          <a class="footer__link" href="/">Обратная связь</a>
         </li>
         <li class="footer__item">
-            <a class="footer__link" href="/">Разработчикам</a>
+          <a class="footer__link" href="/">Разработчикам</a>
         </li>
         <li class="footer__item">
-            <a class="footer__link" href="/">Условия использования</a>
+          <a class="footer__link" href="/">Условия использования</a>
         </li>
-    </ul>
+      </ul>
 
-    <div class="footer__copyright">
-        © 1997–2023 ООО «Яндекс»
-    </div>
-</footer>
+      <div class="footer__copyright">© 1997–2023 ООО «Яндекс»</div>
+    </footer>
 
-<script
+    <script
       defer
       src="https://unpkg.com/@babel/standalone/babel.min.js"
-></script>
-<script type="text/babel">
-    const Header = React.memo(() => {
+    ></script>
+    <script defer type="text/babel">
+      const Header = React.memo(() => {
         let [expanded, setExpanded] = React.useState(false);
 
         const onClick = () => {
@@ -122,123 +119,143 @@
         );
       });
 
-    const TABS = {
+      const TABS = {
         all: {
-            title: 'Все',
-            items: [{
-                icon: 'light2',
-                iconLabel: 'Освещение',
-                title: 'Xiaomi Yeelight LED Smart Bulb',
-                subtitle: 'Включено'
-            }, {
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'D-Link Omna 180 Cam',
-                subtitle: 'Включится в 17:00'
-            }, {
-                icon: 'temp',
-                iconLabel: 'Температура',
-                title: 'Elgato Eve Degree Connected',
-                subtitle: 'Выключено до 17:00'
-            }, {
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'LIFX Mini Day & Dusk A60 E27',
-                subtitle: 'Включится в 17:00'
-            }, {
-                icon: 'light2',
-                iconLabel: 'Освещение',
-                title: 'Xiaomi Mi Air Purifier 2S',
-                subtitle: 'Включено'
-            }, {
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'Philips Zhirui',
-                subtitle: 'Включено'
-            }, {
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'Philips Zhirui',
-                subtitle: 'Включено'
-            }, {
-                icon: 'light2',
-                iconLabel: 'Освещение',
-                title: 'Xiaomi Mi Air Purifier 2S',
-                subtitle: 'Включено'
-            }]
+          title: "Все",
+          items: [
+            {
+              icon: "light2",
+              iconLabel: "Освещение",
+              title: "Xiaomi Yeelight LED Smart Bulb",
+              subtitle: "Включено",
+            },
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "D-Link Omna 180 Cam",
+              subtitle: "Включится в 17:00",
+            },
+            {
+              icon: "temp",
+              iconLabel: "Температура",
+              title: "Elgato Eve Degree Connected",
+              subtitle: "Выключено до 17:00",
+            },
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "LIFX Mini Day & Dusk A60 E27",
+              subtitle: "Включится в 17:00",
+            },
+            {
+              icon: "light2",
+              iconLabel: "Освещение",
+              title: "Xiaomi Mi Air Purifier 2S",
+              subtitle: "Включено",
+            },
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "Philips Zhirui",
+              subtitle: "Включено",
+            },
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "Philips Zhirui",
+              subtitle: "Включено",
+            },
+            {
+              icon: "light2",
+              iconLabel: "Освещение",
+              title: "Xiaomi Mi Air Purifier 2S",
+              subtitle: "Включено",
+            },
+          ],
         },
         kitchen: {
-            title: 'Кухня',
-            items: [{
-                icon: 'light2',
-                iconLabel: 'Освещение',
-                title: 'Xiaomi Yeelight LED Smart Bulb',
-                subtitle: 'Включено'
-            }, {
-                icon: 'temp',
-                iconLabel: 'Температура',
-                title: 'Elgato Eve Degree Connected',
-                subtitle: 'Выключено до 17:00'
-            }]
+          title: "Кухня",
+          items: [
+            {
+              icon: "light2",
+              iconLabel: "Освещение",
+              title: "Xiaomi Yeelight LED Smart Bulb",
+              subtitle: "Включено",
+            },
+            {
+              icon: "temp",
+              iconLabel: "Температура",
+              title: "Elgato Eve Degree Connected",
+              subtitle: "Выключено до 17:00",
+            },
+          ],
         },
         hall: {
-            title: 'Зал',
-            items: [{
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'Philips Zhirui',
-                subtitle: 'Выключено'
-            }, {
-                icon: 'light2',
-                iconLabel: 'Освещение',
-                title: 'Xiaomi Mi Air Purifier 2S',
-                subtitle: 'Выключено'
-            }]
+          title: "Зал",
+          items: [
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "Philips Zhirui",
+              subtitle: "Выключено",
+            },
+            {
+              icon: "light2",
+              iconLabel: "Освещение",
+              title: "Xiaomi Mi Air Purifier 2S",
+              subtitle: "Выключено",
+            },
+          ],
         },
         lights: {
-            title: 'Лампочки',
-            items: [{
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'D-Link Omna 180 Cam',
-                subtitle: 'Включится в 17:00'
-            }, {
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'LIFX Mini Day & Dusk A60 E27',
-                subtitle: 'Включится в 17:00'
-            }, {
-                icon: 'light2',
-                iconLabel: 'Освещение',
-                title: 'Xiaomi Mi Air Purifier 2S',
-                subtitle: 'Включено'
-            }, {
-                icon: 'light',
-                iconLabel: 'Освещение',
-                title: 'Philips Zhirui',
-                subtitle: 'Включено'
-            }]
+          title: "Лампочки",
+          items: [
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "D-Link Omna 180 Cam",
+              subtitle: "Включится в 17:00",
+            },
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "LIFX Mini Day & Dusk A60 E27",
+              subtitle: "Включится в 17:00",
+            },
+            {
+              icon: "light2",
+              iconLabel: "Освещение",
+              title: "Xiaomi Mi Air Purifier 2S",
+              subtitle: "Включено",
+            },
+            {
+              icon: "light",
+              iconLabel: "Освещение",
+              title: "Philips Zhirui",
+              subtitle: "Включено",
+            },
+          ],
         },
         cameras: {
-            title: 'Камеры',
-            items: [{
-                icon: 'light2',
-                iconLabel: 'Освещение',
-                title: 'Xiaomi Mi Air Purifier 2S',
-                subtitle: 'Включено'
-            }]
-        }
-    };
+          title: "Камеры",
+          items: [
+            {
+              icon: "light2",
+              iconLabel: "Освещение",
+              title: "Xiaomi Mi Air Purifier 2S",
+              subtitle: "Включено",
+            },
+          ],
+        },
+      };
 
+      for (let i = 0; i < 6; ++i) {
+        TABS.all.items.push(...TABS.all.items);
+      }
 
-    for (let i = 0; i < 6; ++i) {
-        TABS.all.items = [...TABS.all.items, ...TABS.all.items];
-    }
+      const TABS_KEYS = Object.keys(TABS);
 
-
-    const TABS_KEYS = Object.keys(TABS);
-
-    function Main() {
+      function Main() {
         const ref = React.useRef();
 
         const [activeTab, setActiveTab] = React.useState(
@@ -436,15 +453,14 @@
         );
       }
 
-
-        const root = ReactDOM.createRoot(document.getElementById('app'));
-        root.render(
-            <>
-                <Header />
-                <Main />
-            </>
-        );
-</script>
-
-</body>
+      const root = ReactDOM.createRoot(document.getElementById("app"));
+      root.render(
+        <>
+          <Header />
+          <Main />
+        </>
+      );
+    </script>
+  
+  </body>
 </html>
