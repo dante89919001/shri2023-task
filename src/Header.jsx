@@ -14,14 +14,14 @@ function Header() {
 
   return (
     <header className="header">
-      <a href="/" className="header__logo" aria-label="Яндекс.Дом"></a>
-      <button
-        className="header__menu"
-        aria-expanded={expanded ? "true" : "false"}
-        onClick={onClick}
-      >
+        <a href="/" className="header__logo" aria-label="Яндекс.Дом"></a>
+        <button
+            className="header__menu"
+            aria-expanded={expanded ? "true" : "false"}
+            onClick={onClick}
+        >
         <span className="header__menu-text a11y-hidden">
-          {expanded ? "Закрыть меню" : "Открыть меню"}
+            {expanded ? "Закрыть меню" : "Открыть меню"}
         </span>
       </button>
       <ul

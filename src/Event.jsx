@@ -24,7 +24,7 @@ export const Event = memo((props) => {
         ></span>
         <h4 className="event__title">{props.title}</h4>
         {props.subtitle && (
-          <span className="event__subtitle">{props.subtitle}</span>
+        <span className="event__subtitle">{props.subtitle}</span>
         )}
       </button>
     </li>
