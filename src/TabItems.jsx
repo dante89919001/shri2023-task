@@ -1,6 +1,7 @@
+import { Event } from "./Event";
 import { useMemo } from "preact/hooks";
 import { memo } from "preact/compat";
-import { Event } from "./Event";
+
 
 export const TabItems = memo(({ tabItems, setSize }) => {
   const items = useMemo(() => {

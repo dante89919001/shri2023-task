@@ -2,13 +2,8 @@ import { useState } from "preact/hooks";
 
 function Header() {
   const [expanded, setExpanded] = useState(false);
-  const [toggled, setToggled] = useState(false);
 
   const onClick = () => {
-    if (!toggled) {
-      setToggled(true);
-    }
-
     setExpanded(!expanded);
   };
 
