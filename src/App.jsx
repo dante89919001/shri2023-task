@@ -1,4 +1,4 @@
-import { useState, useRef } from "preact/hooks";
+import { useState, useRef, useMemo } from "preact/hooks";
 import { Event } from "./Event.jsx";
 import { TabItems } from "./TabItems.jsx";
 
@@ -131,16 +131,22 @@ const TABS = {
     ],
   },
 };
-const DUPLICATE_FACTOR = 2 ** 6; 
 
-TABS.all.items = Array.from({ length: TABS.all.items.length * DUPLICATE_FACTOR }, (_, index) => {
-  const originalIndex = index % TABS.all.items.length;
-  return TABS.all.items[originalIndex];
-});
 
-const TABS_KEYS = Object.keys(TABS);
 
 function App() {
+
+  const memoizedItems = useMemo(() => {
+    let updatedItems = TABS.all.items;
+    for (let i = 0; i < 6; i++) {
+      updatedItems = [...updatedItems, ...updatedItems];
+    }
+    return updatedItems;
+  }, []);
+  
+  TABS.all.items = memoizedItems;
+  const TABS_KEYS = useMemo(() => Object.keys(TABS), []);
+
   const ref = useRef(null);
   const [activeTab, setActiveTab] = useState(
     new URLSearchParams(location.search).get("tab") || "all"
