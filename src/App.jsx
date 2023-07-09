@@ -136,16 +136,7 @@ const TABS = {
 
 function App() {
  
-  const memoizedItems = useMemo(() => {
-    let updatedItems = TABS.all.items;
-    for (let i = 0; i < 6; i++) {
-      updatedItems = [...updatedItems, ...updatedItems];
-    }
-    return updatedItems;
-  }, []);
-  
-  TABS.all.items = memoizedItems;
-  const TABS_KEYS = useMemo(() => Object.keys(TABS), []);
+
 
   const ref = useRef(null);
   const [activeTab, setActiveTab] = useState(
@@ -158,6 +149,21 @@ function App() {
     setSize(0);
     setActiveTab(tab);
   };
+  const memoizedItems = useMemo(() => {
+    const originalItems = TABS.all.items;
+    const updatedItems = [];
+  
+    for (let i = 0; i < 6; i++) {
+      updatedItems.push(...originalItems);
+    }
+  
+    return updatedItems;
+  }, []);
+  
+  TABS.all.items = memoizedItems;
+  
+  const TABS_KEYS = useMemo(() => Object.keys(TABS), []);
+  
   const memoizedSelector = (() => {
     let cachedElement = null;
   
@@ -171,18 +177,27 @@ function App() {
       return scroller;
     };
   })();
+  
   const onArrowCLick = () => {
-    
     const scroller = memoizedSelector(ref);
-
+  
     if (scroller) {
+      const scrollWidth = scroller.scrollWidth;
+      const clientWidth = scroller.clientWidth;
+      const maxScrollLeft = scrollWidth - clientWidth;
+  
+      let newScrollLeft = scroller.scrollLeft + 400;
+      if (newScrollLeft > maxScrollLeft) {
+        newScrollLeft = newScrollLeft % scrollWidth;
+      }
+  
       scroller.scrollTo({
-        left: scroller.scrollLeft + 400,
+        left: newScrollLeft,
         behavior: "smooth",
       });
     }
   };
-
+  
   return (
     <main className="main">
       <section className="section main__general">
