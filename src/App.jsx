@@ -132,9 +132,9 @@ const TABS = {
   },
 };
 
-const DUPLICATE_ITEMS_COUNT = 6;
-
-TABS.all.items = Array.from({ length: DUPLICATE_ITEMS_COUNT }, () => TABS.all.items).flat();
+for (let i = 0; i < 6; ++i) {
+  TABS.all.items = [...TABS.all.items, ...TABS.all.items];
+}
 
 const TABS_KEYS = Object.keys(TABS);
 
