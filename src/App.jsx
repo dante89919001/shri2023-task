@@ -138,9 +138,6 @@ TABS.all.items = Array.from({ length: DUPLICATE_ITEMS_COUNT }, () => TABS.all.it
 
 const TABS_KEYS = Object.keys(TABS);
 
-
-
-
 function App() {
   const ref = useRef(null);
   const [activeTab, setActiveTab] = useState(
