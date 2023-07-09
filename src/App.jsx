@@ -132,11 +132,14 @@ const TABS = {
   },
 };
 
-for (let i = 0; i < 6; ++i) {
-  TABS.all.items = [...TABS.all.items, ...TABS.all.items];
-}
+const DUPLICATE_ITEMS_COUNT = 6;
+
+TABS.all.items = Array.from({ length: DUPLICATE_ITEMS_COUNT }, () => TABS.all.items).flat();
 
 const TABS_KEYS = Object.keys(TABS);
+
+
+
 
 function App() {
   const ref = useRef(null);
