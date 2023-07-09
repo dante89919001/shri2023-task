@@ -131,10 +131,12 @@ const TABS = {
     ],
   },
 };
+const DUPLICATE_FACTOR = 2 ** 6; 
 
-for (let i = 0; i < 6; ++i) {
-  TABS.all.items = [...TABS.all.items, ...TABS.all.items];
-}
+TABS.all.items = Array.from({ length: TABS.all.items.length * DUPLICATE_FACTOR }, (_, index) => {
+  const originalIndex = index % TABS.all.items.length;
+  return TABS.all.items[originalIndex];
+});
 
 const TABS_KEYS = Object.keys(TABS);
 
