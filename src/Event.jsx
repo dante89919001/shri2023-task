@@ -8,11 +8,11 @@ export const Event = memo((props) => {
 
   useEffect(() => {
     const width = ref.current.offsetWidth;
-  
+
     if (setSize && width) {
-      setSize((s) => s + width);
+      setSize(s => s + width);
     }
-  }, [ref.current.offsetWidth, setSize]);
+  });
 
   return (
     <li ref={ref} className={"event" + (props.slim ? " event_slim" : "")}>
