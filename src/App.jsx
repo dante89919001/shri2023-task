@@ -135,7 +135,7 @@ const TABS = {
 
 
 function App() {
-
+ 
   const memoizedItems = useMemo(() => {
     let updatedItems = TABS.all.items;
     for (let i = 0; i < 6; i++) {
@@ -158,11 +158,23 @@ function App() {
     setSize(0);
     setActiveTab(tab);
   };
-
+  const memoizedSelector = (() => {
+    let cachedElement = null;
+  
+    return (ref) => {
+      if (cachedElement) {
+        return cachedElement;
+      }
+  
+      const scroller = ref.current.querySelector(".section__panel:not(.section__panel_hidden)");
+      cachedElement = scroller;
+      return scroller;
+    };
+  })();
   const onArrowCLick = () => {
-    const scroller = ref.current.querySelector(
-      ".section__panel:not(.section__panel_hidden)"
-    );
+    
+    const scroller = memoizedSelector(ref);
+
     if (scroller) {
       scroller.scrollTo({
         left: scroller.scrollLeft + 400,
